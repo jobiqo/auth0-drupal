@@ -52,3 +52,18 @@ function auth0_uninstall() {
   variable_del('auth0_client_secret');
 }
 
+/**
+ * Use requirements to ensure that the CTools CSS cache directory can be
+ * created and that the PHP version requirement is met.
+ */
+function auth0_requirements($phase) {
+  $requirements = array();
+  if ($phase == 'runtime') {
+    $ok = auth0_check_dependencies();
+
+    $requirements['auth0_library']['title'] = t('Auth0 library');
+    $requirements['auth0_library']['value'] = $ok ? t('Exists') : t('Missing');;
+    $requirements['auth0_library']['severity'] = $ok ? REQUIREMENT_OK : REQUIREMENT_ERROR;
+    $requirements['auth0_library']['description'] = t('Auth0 php library is required.');
+  }
+}

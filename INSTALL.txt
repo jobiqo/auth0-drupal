@@ -15,7 +15,7 @@ of the required dependencies.
 
 2) With Composer Manager
 Composer Manager (https://www.drupal.org/project/composer_manager) is a Drupal
-module to help with the management of dependencies accross all installed modules.
+module to help with the management of dependencies across all installed modules.
 
 Follow the Composer Manager instructions: https://www.drupal.org/node/2405805
 to install Composer Manager and use it to download and install the Auth0 module
