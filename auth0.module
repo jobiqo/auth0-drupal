@@ -802,6 +802,8 @@ function _auth0_generate_authorize_url($prompt) {
   $additional_params = [];
   $additional_params['scope'] = 'openid profile email';
   $additional_params = array_merge($additional_params, $query);
+  // Let other modules alter the additional parameters.
+  drupal_alter('auth0_authorize_url_additional_params', $additional_params);
 
   $domain = check_plain(variable_get("auth0_domain", ''));
   $client_id = check_plain(variable_get("auth0_client_id", ''));
